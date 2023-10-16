@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Unica+One&display=swap");
+:root {
+  --secondary: #160f2a;
+  --tertiary: #903aff;
+  --quartenary: #d634fe;
+  --gray: rgba(255, 255, 255, 0.75);
+  --mainText: "Montserrat", sans-serif;
+  --secondaryText: "Unica One", cursive;
+  --tertiaryText: "clash";
+  --teal: rgb(45 212 191);
+}
+
+* {
+  margin: 0;
+  font-family: var(--mainText);
+}
+
+main .container {
+  padding: 4rem;
+}
+
+body {
+  background: var(--secondary);
+  height: 100vh;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.jb {
+  justify-content: space-between;
+}
+
+.low {
+  color: red;
+}
+
+.high {
+  color: var(--tertiary);
+}
+
+.logo {
+  width: 12rem;
+  height: auto;
+}
+
+.nav--link {
+  color: #fff;
+  margin: 1rem 0;
+  position: relative;
+}
+.nav--link.active, .nav--link:hover {
+  color: var(--teal);
+}
+.nav--link.active::after, .nav--link:hover::after {
+  background: var(--teal);
+}
+.nav--link::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: inherit;
+  left: 0;
+  bottom: -50%;
+}
+.nav--link::after :hover {
+  background: var(--teal);
+}
+
+.btn {
+  cursor: pointer;
+  border: 2px solid rgb(45, 212, 191);
+  transition: 200ms ease-in;
+}
+.btn:hover {
+  background: var(--secondary);
+  color: #fff;
+  border: 2px solid rgb(45, 212, 191);
+}
+.btn--primary {
+  background: rgb(45, 212, 191);
+}
+.btn--cart {
+  background: rgb(45, 212, 191);
+  height: 2rem;
+  width: 2rem;
+  padding: 2rem;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+.btn--cart:hover svg {
+  fill: var(--teal);
+  stroke: var(--teal);
+}
+.btn--cart svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--secondary);
+  stroke: var(--secondary);
+}
+.btn-disabled {
+  background: red;
+}
+
+.scrollup {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  bottom: 5%;
+  right: 5%;
+  z-index: 20;
+}
+
+.like.liked svg {
+  color: red;
+}
+
+.products .product--img--case {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.products .price {
+  font-size: 1.25rem;
+}
+.products .bg {
+  align-self: stretch;
+}
+.products .product--card {
+  display: flex;
+  gap: 2rem;
+  border-radius: 5px;
+  max-width: 350px;
+  height: auto;
+  padding: 2rem 2rem;
+  box-shadow: 0 2px 25px rbga(255, 255, 255, 0.5);
+  background: #fff;
+}
+.products .product--card:hover .product--img--case {
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.5);
+}
+.products .product--card:hover img {
+  transform: scale(102%);
+}
+.products .product--card--img {
+  transition: 200ms ease-in;
+  margin-bottom: 1rem;
+  background: #000;
+}
+.products .product--card--data {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.products .product--card--data .desc {
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.75);
+}
+.products .product--card--data .title {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.categories {
+  position: relative;
+}
+.categories--wrapper {
+  position: absolute;
+  border-radius: 2px;
+  margin-top: 0rem;
+  border: 1px solid var(--teal);
+  display: flex;
+  gap: 0.51rem;
+  flex-direction: column;
+  z-index: 10;
+  width: 300px;
+  background: var(--teal);
+  color: var(--secondary);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 150ms ease-in;
+}
+.categories--wrapper li {
+  padding: 0.75rem 0.5rem;
+  font-weight: bolder;
+}
+.categories--wrapper li:hover {
+  background: var(--secondary);
+  color: var(--teal);
+}
+.categories:hover .categories--wrapper, .categories:active .categories--wrapper {
+  visibility: visible;
+  opacity: 1;
+}
+
+.card {
+  max-width: 450px;
+  padding: 0;
+  color: black;
+  background: #fff;
+  height: 550px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.card .rating {
+  position: absolute;
+  content: "star";
+  height: 40px;
+  width: 60px;
+  top: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  display: grid;
+  place-items: center;
+  z-index: 5;
+  font-weight: bold;
+}
+.card .rating.bad {
+  background: red;
+}
+.card .rating.good {
+  background: rgb(45, 212, 191);
+}
+.card .rating.average {
+  background: orange;
+}
+.card .cat {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 150px;
+  top: 5%;
+  color: #fff;
+  transform: rotate(90deg);
+  left: -9%;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  display: grid;
+  place-items: center;
+  z-index: 5;
+}
+.card--img {
+  flex-basis: 50%;
+  overflow: hidden;
+  transition: 200ms ease-in;
+  position: relative;
+}
+.card--data {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover .card--img {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.box {
+  box-shadow: 1px -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.cart--unit {
+  border-bottom: 1px solid var(--secondary);
+}
+.cart--unit:hover {
+  background: var(--secondary);
+  color: var(--teal);
+  cursor: pointer;
+}
+.cart--container {
+  position: absolute;
+  content: " ";
+  z-index: 40;
+  color: var(--secondary);
+  font-weight: bolder;
+  background: var(--teal);
+  border: 1px solid var(--teal);
+  height: 80vh;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.cart--contents {
+  margin: 1rem 0;
+  border-top: 1px solid var(--secondary);
+  border-bottom: 1px solid var(--secondary);
+  overflow-y: scroll;
+}/*# sourceMappingURL=style.css.map */

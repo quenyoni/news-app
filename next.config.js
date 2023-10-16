@@ -1,4 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+module.exports = {
+    images: {
+        domains: ['placehold.co','dog.ceo'],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '**',
+          port: '',
+          pathname: '**',
+        },
+      ],
+    },
+  }
